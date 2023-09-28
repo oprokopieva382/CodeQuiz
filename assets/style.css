@@ -1,0 +1,57 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+}
+.scoreLink {
+  text-decoration: none;
+  color: #ef9192;
+  cursor: crosshair;
+}
+.scoreLink:hover {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg id='squiggle-link' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' xmlns:ev='http://www.w3.org/2001/xml-events' viewBox='0 0 20 4'%3E%3Cstyle type='text/css'%3E.squiggle{animation:shift .3s linear infinite;}@keyframes shift {from {transform:translateX(0);}to {transform:translateX(-20px);}}%3C/style%3E%3Cpath fill='none' stroke='%23ff9800' stroke-width='2' class='squiggle' d='M0,3.5 c 5,0,5,-3,10,-3 s 5,3,10,3 c 5,0,5,-3,10,-3 s 5,3,10,3'/%3E%3C/svg%3E");
+  background-position: 0 100%;
+  background-size: auto 2px;
+  background-repeat: repeat-x;
+  text-decoration: none;
+  color: #394f4c;
+}
+.time {
+  color: #ef9192;
+}
+main {
+  display: flex;
+  height: 80vh;
+}
+.backgroundImg {
+  flex: 1.5;
+  background-image: url(./images/quiz.gif);
+  justify-content: stretch;
+}
+.content {
+  flex: 4;
+  text-align: center;
+  background-color: #ef9192;
+  padding-top: 3%;
+  box-shadow: -30px 40px 30px rgba(0, 0, 0, 0.5);
+  margin-right: 3%;
+  border-radius: 5px;
+}
+h1 {
+  text-align: center;
+  color: #394f4c;
+}
+.text {
+  padding: 3% 10%;
+  color: #c7e7ee;
+  line-height: 1.5;
+}
+.startButton {
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #ef9192;
+  font-weight: bold;
+  background-color: #c7e7ee;
+  cursor: crosshair;
+}
