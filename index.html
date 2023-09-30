@@ -10,9 +10,9 @@
   <body>
     <header>
       <a href="#" class="scoreLink">View high scores</a>
-      <div class="time">Time: 0</div>
+      <div class="time" id="time">Time: 0</div>
     </header>
-    <main>
+    <main class="quizSection" id="quizSection">
       <div class="backgroundImg"></div>
       <div class="content">
         <h1 id="toDisplayQuestion">Coding Quiz Challenge</h1>
@@ -21,9 +21,23 @@
           limit. Keep in mind that incorrect answer will penalize your
           score/time by ten seconds!
         </div>
-        <button class="startButton" id="startQuiz">Start Quiz</button>
+        <button class="runButton" id="startQuiz">Start Quiz</button>
+        <p id="message" class="message"></p>
       </div>
     </main>
-    <script src="script.js"></script>
+    <section class="seeResultSection" id="seeResultSection">
+      <div class="backgroundImg"></div>
+      <div class="content">
+        <h1 id="toDisplayQuestion" class="toDisplayQuestion">All done, friend!🏆</h1>
+        <div class="resultText" id="resultText"></div>
+        <form>
+          <label for="initials" class="initials">Enter initials: </label>
+          <input type="text" name="initials" id="initials" placeholder="OP" class="initials"/>
+          <button class="submitButton" id="submit">✔️</button>
+        </form>
+        <p id="resultMessage" class="message"></p>
+      </div>
+    </section>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
