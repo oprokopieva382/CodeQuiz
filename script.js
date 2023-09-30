@@ -6,26 +6,29 @@ const text = document.getElementById("text");
 const messageAlert = document.getElementById("message");
 const time = document.getElementById("time");
 const seeResultButton = document.getElementById("seeResult");
+const quizSection = document.getElementById("quizSection");
+const seeResultSection = document.getElementById("seeResultSection");
+const resultText = document.getElementById("resultText");
 
 let message = "";
 console.log(message);
 let currentQuestion = 0;
 let timeLeft = 60;
 
-//display result.html page with score and submit initials
-// const endQuiz = () => {
-//   window.location.href = "results.html";
-//   time.textContent = `Time: ${timeLeft}`;
-//   text.textContent = `Your final score is: ${timeLeft}`;
-//   messageAlert.innerHTML = "Quiz completed!";
-
-// };
+//end quiz and display result and submit initials
+const endQuiz = () => {
+quizSection.style.display = "none";
+seeResultSection.style.display = "flex";
+seeResultSection.style.height = "80vh";
+resultText.innerHTML = `🎉Your final score is: ${timeLeft}🎉`;
+seeResultButton.style.display = "block";
+};
 
 //run quiz question
 const runQuestion = () => {
   if (currentQuestion >= questions.length) {
-    seeResultButton.style.display = "block"
-    //endQuiz();
+    
+    endQuiz();
     return;
   }
   console.log("runQuestion");

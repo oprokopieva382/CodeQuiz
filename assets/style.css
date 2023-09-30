@@ -19,7 +19,7 @@ header {
 .time {
   color: #ef9192;
 }
-main {
+.quizSection {
   display: flex;
   height: 80vh;
 }
@@ -45,6 +45,14 @@ h1 {
   padding: 3% 10%;
   color: #c7e7ee;
   line-height: 1.5;
+}
+.resultText {
+  padding: 3% 10% 5%;
+  color: #c7e7ee;
+  font-size: 25px;
+}
+.toDisplayQuestion {
+  font-size: 35px;
 }
 .runButton {
   text-align: center;
@@ -72,25 +80,33 @@ button:hover,
   margin: 5px;
   font-weight: bold;
 }
-.seeResult {
-  display: none;
-  margin: 0 auto;
-  text-align: center;
-  padding: 15px 30px;
-  border-radius: 50px;
-  color: #ef9192;
-  font-weight: bold;
-  background-color: #394f4c;
-  cursor: crosshair;
-  border: 2px solid #c7e7ee;
-  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
-}
-.seeResult:hover {
-  background-color: #c7e7ee;
-  border: 2px solid #394f4c;
-}
 .message {
   margin-top: 30px;
   text-decoration: underline;
   font-size: 20px;
+}
+.seeResultSection {
+  display: none;
+}
+.initials {
+  color: #394f4c;
+  font-size: 25px;
+  height: 40px;
+  width: 20%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+.submitButton {
+  display: block;
+  margin: 0 auto;
+  background-color: #ef9192;
+  padding: 7px 15px;
+  border-radius: 20px;
+}
+form {
+  background-color: #c7e7ee;
+  padding: 30px;
+  margin: 2% 30%;
+  border-radius: 10px;
+  box-shadow: -30px 50px 35px rgba(0, 0, 0, 0.4);
 }
