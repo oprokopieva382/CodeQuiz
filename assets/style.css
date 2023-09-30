@@ -55,3 +55,17 @@ h1 {
   background-color: #c7e7ee;
   cursor: crosshair;
 }
+
+button:hover, .false:hover, .true:hover {
+  cursor: crosshair;
+  background-color: #394f4c;
+  color: #ef9192;;
+}
+.false, .true {
+  padding: 10px 20px; 
+  width: 20%; 
+  background-color: #c7e7ee; 
+  color:#394f4c; 
+  margin: 5px;
+  font-weight: bold;
+}
