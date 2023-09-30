@@ -4,32 +4,45 @@ const toDisplayQuestion = document.getElementById("toDisplayQuestion");
 const startQuiz = document.getElementById("startQuiz");
 const text = document.getElementById("text");
 const messageAlert = document.getElementById("message");
+const time = document.getElementById("time");
+const seeResultButton = document.getElementById("seeResult");
 
 let message = "";
 console.log(message);
 let currentQuestion = 0;
-let timeLeft = 0;
+let timeLeft = 60;
+
+//display result.html page with score and submit initials
+// const endQuiz = () => {
+//   window.location.href = "results.html";
+//   time.textContent = `Time: ${timeLeft}`;
+//   text.textContent = `Your final score is: ${timeLeft}`;
+//   messageAlert.innerHTML = "Quiz completed!";
+
+// };
 
 //run quiz question
 const runQuestion = () => {
   if (currentQuestion >= questions.length) {
-     messageAlert.innerHTML = "Quiz completed!";
+    seeResultButton.style.display = "block"
+    //endQuiz();
     return;
   }
   console.log("runQuestion");
   toDisplayQuestion.innerHTML = questions[currentQuestion].question;
   startQuiz.remove();
   text.textContent = "";
+  time.innerHTML = `Time: ${timeLeft}`;
 
   // Function to check the selected answer
   const checkAnswer = (e) => {
     const element = e.target;
     console.log("checkAnswer");
     if (element.classList.contains("true")) {
-      messageAlert.innerHTML = "Correct";
+      messageAlert.innerHTML = "That is exactly correct🤗";
       console.log(message);
     } else {
-      messageAlert.innerHTML = "Wrong";
+      messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
       console.log(message);
     }
     currentQuestion++;

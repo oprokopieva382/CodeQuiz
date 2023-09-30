@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/reset.css" />
     <link rel="stylesheet" href="./assets/style.css" />
-    <title>Code Quiz</title>
+    <title>Submit Result</title>
   </head>
   <body>
     <header>
@@ -15,17 +15,13 @@
     <main>
       <div class="backgroundImg"></div>
       <div class="content">
-        <h1 id="toDisplayQuestion">Coding Quiz Challenge</h1>
-        <div class="text" id="text">
-          Try to answer the following code-related questions within the time
-          limit. Keep in mind that incorrect answer will penalize your
-          score/time by ten seconds!
-        </div>
-        <button class="runButton" id="startQuiz">Start Quiz</button>
-        <button
-          id="seeResult"
-          class="seeResult"
-          >See Result</button>
+        <h1 id="toDisplayQuestion">All done, friend!</h1>
+        <div class="text" id="text"></div>
+        <form>
+          <label for="initials">Enter initials: </label>
+          <input type="text" name="initials" id="initials" placeholder="OP" />
+          <button class="runButton" id="submit">SUBMIT</button>
+        </form>
         <p id="message" class="message"></p>
       </div>
     </main>

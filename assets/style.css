@@ -45,8 +45,8 @@ h1 {
   padding: 3% 10%;
   color: #c7e7ee;
   line-height: 1.5;
-  }
-.startButton {
+}
+.runButton {
   text-align: center;
   padding: 10px 20px;
   border-radius: 20px;
@@ -56,16 +56,41 @@ h1 {
   cursor: crosshair;
 }
 
-button:hover, .false:hover, .true:hover {
+button:hover,
+.false:hover,
+.true:hover {
   cursor: crosshair;
   background-color: #394f4c;
-  color: #ef9192;;
+  color: #ef9192;
 }
-.false, .true {
-  padding: 10px 20px; 
-  width: 20%; 
-  background-color: #c7e7ee; 
-  color:#394f4c; 
+.false,
+.true {
+  padding: 10px 20px;
+  width: 30%;
+  background-color: #c7e7ee;
+  color: #394f4c;
   margin: 5px;
   font-weight: bold;
+}
+.seeResult {
+  display: none;
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 50px;
+  color: #ef9192;
+  font-weight: bold;
+  background-color: #394f4c;
+  cursor: crosshair;
+  border: 2px solid #c7e7ee;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.2);
+}
+.seeResult:hover {
+  background-color: #c7e7ee;
+  border: 2px solid #394f4c;
+}
+.message {
+  margin-top: 30px;
+  text-decoration: underline;
+  font-size: 20px;
 }
