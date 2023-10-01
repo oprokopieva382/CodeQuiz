@@ -1,3 +1,4 @@
+/* header style */
 header {
   display: flex;
   justify-content: space-between;
@@ -19,11 +20,15 @@ header {
 .time {
   color: #ef9192;
 }
+
+/* main & result section share style */
 .quizSection,
 .highScoreSection {
   display: flex;
   height: 80vh;
 }
+
+/* main */
 .backgroundImg {
   flex: 1.5;
   background-image: url(./images/quiz.gif);
@@ -38,6 +43,82 @@ header {
   margin-right: 3%;
   border-radius: 5px;
 }
+.text {
+  padding: 3% 10%;
+  color: #c7e7ee;
+  line-height: 1.5;
+}
+.toDisplayQuestion {
+  font-size: 35px;
+}
+.message {
+  margin-top: 30px;
+  text-decoration: underline;
+  font-size: 20px;
+  color: #394f4c;
+  font-weight: bold;
+}
+
+/* section style  */
+.resultText {
+  padding: 3% 10% 5%;
+  color: #c7e7ee;
+  font-size: 25px;
+}
+.seeResultSection {
+  display: none;
+}
+.initials {
+  color: #394f4c;
+  font-size: 25px;
+  height: 40px;
+  width: 20%;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+form {
+  background-color: #c7e7ee;
+  padding: 30px;
+  margin: 2% 30%;
+  border-radius: 10px;
+  box-shadow: -30px 50px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* share style of buttons for all html*/
+.runButton {
+  text-align: center;
+  padding: 10px 20px;
+  border-radius: 20px;
+  color: #ef9192;
+  font-weight: bold;
+  background-color: #c7e7ee;
+  cursor: crosshair;
+}
+button:hover,
+.false:hover,
+.true:hover {
+  cursor: crosshair;
+  background-color: #394f4c;
+  color: #ef9192;
+}
+.false,
+.true {
+  padding: 10px 20px;
+  width: 30%;
+  background-color: #c7e7ee;
+  color: #394f4c;
+  margin: 5px;
+  font-weight: bold;
+}
+.submitButton {
+  display: block;
+  margin: 0 auto;
+  background-color: #ef9192;
+  padding: 7px 15px;
+  border-radius: 20px;
+  }
+
+/* style for scores records html page */
 .highScoreContent {
   display: block;
   width: 60%;
@@ -60,75 +141,4 @@ h1 {
   text-align: center;
   color: #394f4c;
   margin-bottom: 20px;
-}
-.text {
-  padding: 3% 10%;
-  color: #c7e7ee;
-  line-height: 1.5;
-}
-.resultText {
-  padding: 3% 10% 5%;
-  color: #c7e7ee;
-  font-size: 25px;
-}
-.toDisplayQuestion {
-  font-size: 35px;
-}
-.runButton {
-  text-align: center;
-  padding: 10px 20px;
-  border-radius: 20px;
-  color: #ef9192;
-  font-weight: bold;
-  background-color: #c7e7ee;
-  cursor: crosshair;
-}
-
-button:hover,
-.false:hover,
-.true:hover {
-  cursor: crosshair;
-  background-color: #394f4c;
-  color: #ef9192;
-}
-.false,
-.true {
-  padding: 10px 20px;
-  width: 30%;
-  background-color: #c7e7ee;
-  color: #394f4c;
-  margin: 5px;
-  font-weight: bold;
-}
-.message {
-  margin-top: 30px;
-  text-decoration: underline;
-  font-size: 20px;
-  color: #394f4c;
-  font-weight: bold;
-}
-.seeResultSection {
-  display: none;
-}
-.initials {
-  color: #394f4c;
-  font-size: 25px;
-  height: 40px;
-  width: 20%;
-  border-radius: 10px;
-  margin-bottom: 15px;
-}
-.submitButton {
-  display: block;
-  margin: 0 auto;
-  background-color: #ef9192;
-  padding: 7px 15px;
-  border-radius: 20px;
-  }
-form {
-  background-color: #c7e7ee;
-  padding: 30px;
-  margin: 2% 30%;
-  border-radius: 10px;
-  box-shadow: -30px 50px 35px rgba(0, 0, 0, 0.4);
 }
