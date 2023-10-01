@@ -17,22 +17,18 @@ let timeLeft;
 
 //start timer when quiz runs
 const startTimer = () => {
-  console.log("tick tack start");
   timeLeft = 75;
 
   let timer = setInterval(() => {
     timeLeft--;
     time.textContent = `Time: ${timeLeft}`;
-    console.log("tick tack--");
 
     if (timeLeft === 0) {
       clearInterval(timer);
-      console.log("tick tack stop 0");
       endQuiz();
     }
 
     if (currentQuestion >= questions.length) {
-      console.log("tick tack stop questions length");
       clearInterval(timer);
       endQuiz();
     }
@@ -57,7 +53,7 @@ const storeData = (e) => {
     existingData.push({ playerInitials, playerScore });
     resultMessageAlert.textContent = "Submitted successfully✨";
     localStorage.setItem("playersData", JSON.stringify(existingData));
-    console.log("data stored");
+    window.location.href = "../scoresRecord.html"
   }
 };
 
@@ -72,10 +68,10 @@ const endQuiz = () => {
 // function to check the selected answer
 const checkAnswer = (e) => {
   const element = e.target;
-  console.log("checkAnswer");
   if (element.classList.contains("true")) {
     messageAlert.innerHTML = "That is exactly correct🤗";
   } else {
+    timeLeft = timeLeft - 10
     messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
   }
   currentQuestion++;
@@ -87,7 +83,6 @@ const runQuestion = () => {
   if (currentQuestion >= questions.length) {
     endQuiz();
   } else {
-    console.log("runQuestion");
     toDisplayQuestion.innerHTML = questions[currentQuestion].question;
     startQuiz.remove();
     text.textContent = "";
