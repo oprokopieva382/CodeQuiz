@@ -58,4 +58,56 @@ export const questions = [
       },
     ],
   },
+  {
+    question:
+      "Which built-in method calls a function for each element in the array?",
+    answer: [
+      {
+        text: "while()",
+        isCorrect: false,
+      },
+      {
+        text: "loop()",
+        isCorrect: false,
+      },
+      {
+        text: "forEach()",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    question: "Which built-in method sorts the elements of an array?",
+    answer: [
+      {
+        text: "order()",
+        isCorrect: false,
+      },
+      {
+        text: "push()",
+        isCorrect: false,
+      },
+      {
+        text: "sort()",
+        isCorrect: true,
+      },
+    ],
+  },
+  {
+    question: "Which built-in method returns the length of the string?",
+    answer: [
+      {
+        text: "length()",
+        isCorrect: true,
+      },
+      {
+        text: "size()",
+        isCorrect: false,
+      },
+      {
+        text: "index()",
+        isCorrect: false,
+      },
+    ],
+  },
 ];

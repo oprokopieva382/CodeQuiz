@@ -1,4 +1,4 @@
-import { questions } from "./store/state.js";
+import { questions } from "../store/state.js";
 
 const toDisplayQuestion = document.getElementById("toDisplayQuestion");
 const startQuiz = document.getElementById("startQuiz");
@@ -12,63 +12,80 @@ const resultText = document.getElementById("resultText");
 const submitButton = document.getElementById("submit");
 const initials = document.getElementById("initials");
 
-let message = "";
-console.log(message);
 let currentQuestion = 0;
-let timeLeft = 60;
+let timeLeft;
 
-const storeInitials = (e) => {
-  console.log("storeInitials start");
+//start timer when quiz runs
+const startTimer = () => {
+  timeLeft = 75;
+
+  let timer = setInterval(() => {
+    timeLeft--;
+    time.textContent = `Time: ${timeLeft}`;
+
+    if (timeLeft === 0) {
+      clearInterval(timer);
+      endQuiz();
+    }
+
+    if (currentQuestion >= questions.length) {
+      clearInterval(timer);
+      endQuiz();
+    }
+  }, 1000);
+};
+
+//check for existing data in local storage, if there is not - store player info, if yes - add new to existing
+const storeData = (e) => {
   e.preventDefault();
-  let data = {
-    playerInitials: initials.value.trim(),
-    playerScore: timeLeft
-  };
-   console.log(data);
-  if (!initials.value.trim().length) {
-    console.log("You have to enter your initials❗");
+
+  let existingData = JSON.parse(localStorage.getItem("playersData"));
+  const playerInitials = initials.value.trim();
+  const playerScore = timeLeft;
+
+  if (!playerInitials.length) {
     resultMessageAlert.textContent = "❗You have to enter your initials❗";
   } else {
+    if (!Array.isArray(existingData)) {
+      existingData = [];
+    }
+    existingData.push({ playerInitials, playerScore });
     resultMessageAlert.textContent = "Submitted successfully✨";
-    localStorage.setItem("playerData", JSON.stringify(data));
-    console.log("data stored");
+    localStorage.setItem("playersData", JSON.stringify(existingData));
+    window.location.href = "../scoresRecord.html";
   }
 };
 
-//end quiz and display result and submit initials
+//end quiz and display result and option to submit initials
 const endQuiz = () => {
   quizSection.style.display = "none";
   seeResultSection.style.display = "flex";
   seeResultSection.style.height = "80vh";
   resultText.innerHTML = `🎉Your final score is: ${timeLeft}🎉`;
-  //seeResultButton.style.display = "block";
 };
 
-//run quiz question
+// function to check if selected answer correct or not, and if not subtract 10 sec, but keep timer >= 0
+const checkAnswer = (e) => {
+  const element = e.target;
+  if (element.classList.contains("true")) {
+    messageAlert.innerHTML = "That is exactly correct🤗";
+  } else {
+    timeLeft -= 10;
+    timeLeft = Math.max(0, timeLeft);
+    messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
+  }
+  currentQuestion++;
+  runQuestion();
+};
+
+// run quiz question function
 const runQuestion = () => {
   if (currentQuestion >= questions.length) {
     endQuiz();
   } else {
-    console.log("runQuestion");
     toDisplayQuestion.innerHTML = questions[currentQuestion].question;
     startQuiz.remove();
     text.textContent = "";
-    time.innerHTML = `Time: ${timeLeft}`;
-
-    // Function to check the selected answer
-    const checkAnswer = (e) => {
-      const element = e.target;
-      console.log("checkAnswer");
-      if (element.classList.contains("true")) {
-        messageAlert.innerHTML = "That is exactly correct🤗";
-        console.log(message);
-      } else {
-        messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
-        console.log(message);
-      }
-      currentQuestion++;
-      runQuestion();
-    };
 
     //run through the answer array to create and display buttons with content
     for (let i = 0; i < questions[currentQuestion].answer.length; i++) {
@@ -87,5 +104,11 @@ const runQuestion = () => {
   }
 };
 
-startQuiz.addEventListener("click", runQuestion);
-submitButton.addEventListener("click", storeInitials);
+//start quiz, run question, start timer
+const startQuizRun = () => {
+  startTimer();
+  runQuestion();
+};
+
+startQuiz.addEventListener("click", startQuizRun);
+submitButton.addEventListener("click", storeData);
