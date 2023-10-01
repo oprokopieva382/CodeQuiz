@@ -6,6 +6,7 @@ const clearScores = () => {
   localStorage.clear();
 };
 
+//display score of players in descending order
 const displayPlayersScores = () => {
   const existingData = JSON.parse(localStorage.getItem("playersData"));
 existingData.sort((a,b)=> b.playerScore - a.playerScore)

@@ -64,13 +64,14 @@ const endQuiz = () => {
   resultText.innerHTML = `🎉Your final score is: ${timeLeft}🎉`;
 };
 
-// function to check the selected answer
+// function to check if selected answer correct or not, and if not subtract 10 sec, but keep timer >= 0
 const checkAnswer = (e) => {
   const element = e.target;
   if (element.classList.contains("true")) {
     messageAlert.innerHTML = "That is exactly correct🤗";
   } else {
-    timeLeft = timeLeft - 10;
+    timeLeft -= 10;
+    timeLeft = Math.max(0, timeLeft);
     messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
   }
   currentQuestion++;
