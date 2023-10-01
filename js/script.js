@@ -22,6 +22,7 @@ const startTimer = () => {
   let timer = setInterval(() => {
     timeLeft--;
     time.textContent = `Time: ${timeLeft}`;
+    timeLeft = Math.max(0, timeLeft);
 
     if (timeLeft === 0) {
       clearInterval(timer);
@@ -44,15 +45,17 @@ const storeData = (e) => {
   const playerScore = timeLeft;
 
   if (!playerInitials.length) {
-    resultMessageAlert.textContent = "❗You have to enter your initials❗";
+    resultMessageAlert.textContent = "❗Type your initials first❗";
   } else {
     if (!Array.isArray(existingData)) {
       existingData = [];
     }
     existingData.push({ playerInitials, playerScore });
-    resultMessageAlert.textContent = "Submitted successfully✨";
+    resultMessageAlert.textContent =
+      "Submitted successfully✨Use link above to see best players";
     localStorage.setItem("playersData", JSON.stringify(existingData));
-    window.location.href = "../scoresRecord.html";
+    submitButton.disabled = true;
+    // window.location.href = "../scoresRecord.html";
   }
 };
 
@@ -71,7 +74,6 @@ const checkAnswer = (e) => {
     messageAlert.innerHTML = "That is exactly correct🤗";
   } else {
     timeLeft -= 10;
-    timeLeft = Math.max(0, timeLeft);
     messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
   }
   currentQuestion++;

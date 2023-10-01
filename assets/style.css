@@ -3,6 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   padding: 30px;
+  
 }
 .scoreLink {
   text-decoration: none;
@@ -26,6 +27,7 @@ header {
 .highScoreSection {
   display: flex;
   height: 80vh;
+
 }
 
 /* main */
@@ -50,7 +52,7 @@ header {
 }
 .toDisplayQuestion {
   font-size: 35px;
-}
+ }
 .message {
   margin-top: 30px;
   text-decoration: underline;
@@ -72,14 +74,15 @@ header {
   color: #394f4c;
   font-size: 25px;
   height: 40px;
-  width: 20%;
+  width: 23%;
   border-radius: 10px;
   margin-bottom: 15px;
 }
 form {
   background-color: #c7e7ee;
   padding: 30px;
-  margin: 2% 30%;
+  margin: 0 auto;
+  width: 55%;
   border-radius: 10px;
   box-shadow: -30px 50px 35px rgba(0, 0, 0, 0.4);
 }
@@ -141,4 +144,20 @@ h1 {
   text-align: center;
   color: #394f4c;
   margin-bottom: 20px;
+}
+
+@media (max-width: 980px) {
+  .backgroundImg {
+    display: none;
+  }
+  .content {
+   margin: 3%;
+  } 
+}
+
+@media (max-width: 768px) {
+  .initials {
+    font-size: 19px;
+    width: 26%;
+  }
 }

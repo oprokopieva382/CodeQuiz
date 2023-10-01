@@ -9,15 +9,18 @@ const clearScores = () => {
 //display score of players in descending order
 const displayPlayersScores = () => {
   const existingData = JSON.parse(localStorage.getItem("playersData"));
-existingData.sort((a,b)=> b.playerScore - a.playerScore)
+  existingData.sort((a, b) => b.playerScore - a.playerScore);
 
-  for (let i = 0; i < existingData.length; i++) {
+  for (let i = 0; i < 5; i++) {
     let listElement = document.createElement("li");
     listElement.textContent = `${existingData[i].playerInitials} - ${existingData[i].playerScore}`;
-    listElement.setAttribute("style", "list-style-type: decimal; padding-left: 20px; line-height: 1.5; font-size: 20px")
+    listElement.setAttribute(
+      "style",
+      "list-style-type: decimal; padding-left: 20px; line-height: 1.5; font-size: 20px"
+    );
     scoresList.appendChild(listElement);
   }
 };
-displayPlayersScores()
+displayPlayersScores();
 
 clearStorage.addEventListener("click", clearScores);
