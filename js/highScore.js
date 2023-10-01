@@ -3,7 +3,13 @@ const scoresList = document.getElementById("scoresList");
 
 //function to clean all data in local storage
 const clearScores = () => {
-  localStorage.clear();
+  try {
+    localStorage.removeItem("playersData");
+    scoresList.innerHTML = "";
+    scoresList.appendChild(zeroToDisplay);
+  } catch (error) {
+    console.error("Local storage is empty");
+  }
 };
 
 //display score of players in descending order
@@ -11,7 +17,9 @@ const displayPlayersScores = () => {
   const existingData = JSON.parse(localStorage.getItem("playersData"));
   existingData.sort((a, b) => b.playerScore - a.playerScore);
 
-  for (let i = 0; i < 5; i++) {
+  const numPlayersToDisplay = Math.min(5, existingData.length);
+
+  for (let i = 0; i < numPlayersToDisplay; i++) {
     let listElement = document.createElement("li");
     listElement.textContent = `${existingData[i].playerInitials} - ${existingData[i].playerScore}`;
     listElement.setAttribute(
