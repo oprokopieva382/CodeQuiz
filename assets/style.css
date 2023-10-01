@@ -51,7 +51,11 @@ header {
 }
 .scoresList {
   margin: 5%;
-}
+ color: #394f4c;
+ line-height: 1.5;
+ text-align: left;
+ padding-left: 40%;
+ }
 h1 {
   text-align: center;
   color: #394f4c;
@@ -120,7 +124,7 @@ button:hover,
   background-color: #ef9192;
   padding: 7px 15px;
   border-radius: 20px;
-}
+  }
 form {
   background-color: #c7e7ee;
   padding: 30px;

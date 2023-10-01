@@ -36,11 +36,10 @@ const startTimer = () => {
 };
 
 //check for existing data in local storage, if there is not - store player info, if yes - add new to existing
-const existingDataJSON = localStorage.getItem("playersData");
-const existingData = existingDataJSON ? JSON.parse(existingDataJSON) : [];
 const storeData = (e) => {
   e.preventDefault();
 
+  let existingData = JSON.parse(localStorage.getItem("playersData"));
   const playerInitials = initials.value.trim();
   const playerScore = timeLeft;
 
@@ -53,11 +52,11 @@ const storeData = (e) => {
     existingData.push({ playerInitials, playerScore });
     resultMessageAlert.textContent = "Submitted successfully✨";
     localStorage.setItem("playersData", JSON.stringify(existingData));
-    window.location.href = "../scoresRecord.html"
+    window.location.href = "../scoresRecord.html";
   }
 };
 
-//end quiz and display result and submit initials
+//end quiz and display result and option to submit initials
 const endQuiz = () => {
   quizSection.style.display = "none";
   seeResultSection.style.display = "flex";
@@ -71,7 +70,7 @@ const checkAnswer = (e) => {
   if (element.classList.contains("true")) {
     messageAlert.innerHTML = "That is exactly correct🤗";
   } else {
-    timeLeft = timeLeft - 10
+    timeLeft = timeLeft - 10;
     messageAlert.innerHTML = "Unfortunately wrong, bro🫢";
   }
   currentQuestion++;
