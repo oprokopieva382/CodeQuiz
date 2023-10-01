@@ -1,4 +1,4 @@
-import { questions } from "./store/state.js";
+import { questions } from "../store/state.js";
 
 const toDisplayQuestion = document.getElementById("toDisplayQuestion");
 const startQuiz = document.getElementById("startQuiz");
@@ -14,8 +14,6 @@ const initials = document.getElementById("initials");
 
 let currentQuestion = 0;
 let timeLeft;
-
-
 
 //start timer when quiz runs
 const startTimer = () => {
@@ -41,21 +39,24 @@ const startTimer = () => {
   }, 1000);
 };
 
-//store player initials and score in local storage
+//check for existing data in local storage, if there is not - store player info, if yes - add new to existing
+const existingDataJSON = localStorage.getItem("playersData");
+const existingData = existingDataJSON ? JSON.parse(existingDataJSON) : [];
 const storeData = (e) => {
-  console.log("storeInitials start");
   e.preventDefault();
-  let data = {
-    playerInitials: initials.value.trim(),
-    playerScore: timeLeft,
-  };
-  console.log(data);
-  if (!initials.value.trim().length) {
-    console.log("You have to enter your initials❗");
+
+  const playerInitials = initials.value.trim();
+  const playerScore = timeLeft;
+
+  if (!playerInitials.length) {
     resultMessageAlert.textContent = "❗You have to enter your initials❗";
   } else {
+    if (!Array.isArray(existingData)) {
+      existingData = [];
+    }
+    existingData.push({ playerInitials, playerScore });
     resultMessageAlert.textContent = "Submitted successfully✨";
-    localStorage.setItem("playerData", JSON.stringify(data));
+    localStorage.setItem("playersData", JSON.stringify(existingData));
     console.log("data stored");
   }
 };
