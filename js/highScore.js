@@ -6,8 +6,7 @@ const clearScores = () => {
   try {
     localStorage.removeItem("playersData");
     scoresList.innerHTML = "";
-    scoresList.appendChild(zeroToDisplay);
-  } catch (error) {
+    } catch (error) {
     console.error("Local storage is empty");
   }
 };
